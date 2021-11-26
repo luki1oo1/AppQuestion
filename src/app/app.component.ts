@@ -16,6 +16,7 @@ interface taskQuestion {
 
 export class AppComponent {
   title = 'app-quiz';
+  num = 0;
   taskQuestions :  taskQuestion[] = [
     {
       question: "Which language runs in a web browser?",
@@ -50,4 +51,8 @@ export class AppComponent {
       correct: "b"
     }
   ];
+
+  incrementNumber() {
+    this.num++
+  }
 }
