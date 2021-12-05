@@ -1,24 +1,26 @@
 <div class="quiz-container" id="quiz" *ngFor='let taskQuestion of taskQuestions; let i = index'>
+  <form [formGroup]="form" (ngSubmit)="submit()">
   <div class="quiz-header" *ngIf="i === num">
     <h2 id="question" >{{i + 1}} - {{taskQuestion.question}}</h2>
     <ul>
       <li>
-        <input type="radio" name="answer" id="a" class="answer" />
+        <input type="radio" name="answer" id="a" class="answer" (change)="changeInp($event)"/>
         <label for="a" id="a_text">{{taskQuestion.a}}</label>
       </li>
       <li>
-        <input type="radio" name="answer" id="b" class="answer" />
+        <input type="radio" name="answer" id="b" class="answer" (change)="changeInp($event)"/>
         <label for="b" id="b_text">{{taskQuestion.b}}</label>
       </li>
       <li>
-        <input type="radio" name="answer" id="c" class="answer" />
+        <input type="radio" name="answer" id="c" class="answer" (change)="changeInp($event)"/>
         <label for="c" id="c_text">{{taskQuestion.c}}</label>
       </li>
       <li>
-        <input type="radio" name="answer" id="d" class="answer" />
+        <input type="radio" name="answer" id="d" class="answer" (change)="changeInp($event)"/>
         <label for="d" id="d_text">{{taskQuestion.d}}</label>
       </li>
     </ul>
   </div>
-  <button id="submit" *ngIf="i === num" (click)="incrementNumber()">Submit</button>
+  <button id="submit" *ngIf="i === num">Submit</button>
+  </form>
 </div>

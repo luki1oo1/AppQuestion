@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 interface taskQuestion {
   question: string,
   a: string,
@@ -55,4 +56,20 @@ export class AppComponent {
   incrementNumber() {
     this.num++
   }
+  form = new FormGroup({
+    correct: new FormControl('', Validators.required)
+  });
+
+  get f(){
+    return this.form.controls;
+  }
+
+  submit(){
+    console.log(this.form.value);
+  }
+
+  changeInp(e: any) {
+    console.log(e.target.id);
+}
+
 }
