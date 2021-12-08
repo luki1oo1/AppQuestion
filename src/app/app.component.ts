@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 interface taskQuestion {
   question: string,
   a: string,
@@ -18,7 +18,10 @@ interface taskQuestion {
 export class AppComponent {
   title = 'app-quiz';
   num = 0;
-  taskQuestions :  taskQuestion[] = [
+  form = new FormGroup({
+    answer: new FormControl(''),
+  });
+  taskQuestions:  taskQuestion[] = [
     {
       question: "Which language runs in a web browser?",
       a: "Java",
@@ -56,20 +59,13 @@ export class AppComponent {
   incrementNumber() {
     this.num++
   }
-  form = new FormGroup({
-    correct: new FormControl('', Validators.required)
-  });
 
-  get f(){
-    return this.form.controls;
+  onSubmit() {
+    const x = this.form.value.answer
+    // this.incrementNumber()
+    // pobranie aktualnie zaznaczonej wartości
+    console.log(this.form.value.answer)
+
   }
-
-  submit(){
-    console.log(this.form.value);
-  }
-
-  changeInp(e: any) {
-    console.log(e.target.id);
-}
 
 }
