@@ -16,6 +16,7 @@ interface taskQuestion {
 
 
 export class AppComponent {
+  questionNumber = 0;
   title = 'app-quiz';
   num = 0;
   form = new FormGroup({
@@ -61,11 +62,12 @@ export class AppComponent {
   }
 
   onSubmit() {
-    const x = this.form.value.answer
-    // this.incrementNumber()
-    // pobranie aktualnie zaznaczonej wartości
-    console.log(this.form.value.answer)
-
+    if (this.form.value.answer === this.taskQuestions[this.questionNumber].correct) {
+      this.incrementNumber();
+      this.questionNumber++;
+    } else {
+      alert('the wrong answer');
+    }
   }
 
 }
