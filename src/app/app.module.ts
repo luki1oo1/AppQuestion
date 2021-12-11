@@ -19,6 +19,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     CommonModule,
     ReactiveFormsModule,
+    ReactiveFormsModule,
     ReactiveFormsModule
   ],
   providers: [],

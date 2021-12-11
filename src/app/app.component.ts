@@ -19,6 +19,7 @@ export class AppComponent {
   questionNumber = 0;
   title = 'app-quiz';
   num = 0;
+  score = 0;
   form = new FormGroup({
     answer: new FormControl(''),
   });
@@ -65,8 +66,14 @@ export class AppComponent {
     if (this.form.value.answer === this.taskQuestions[this.questionNumber].correct) {
       this.incrementNumber();
       this.questionNumber++;
+      this.score++;
+      if (this.questionNumber === 4) {
+        console.log(`score ${this.score}/${this.questionNumber}`);
+      }
     } else {
-      alert('the wrong answer');
+      this.incrementNumber();
+      this.questionNumber++;
+
     }
   }
 
