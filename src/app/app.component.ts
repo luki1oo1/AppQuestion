@@ -73,8 +73,13 @@ export class AppComponent {
     } else {
       this.incrementNumber();
       this.questionNumber++;
-
     }
   }
 
+  playAgain() {
+    this.questionNumber = 0;
+    this.score = 0;
+    this.num = -1;
+    this.onSubmit();
+  }
 }

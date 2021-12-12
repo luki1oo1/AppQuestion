@@ -45,3 +45,10 @@ button:focus {
   background-color: #5e3370;
 }
 
+.btn-again {
+  display: none;
+}
+
+.btn-again--active {
+  display: block;
+}
