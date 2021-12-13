@@ -30,9 +30,12 @@
             type="submit"
             *ngIf="i === num"
     >Submit</button>
+    <div class="container-store" *ngIf="i === num">
+      <div class="score" *ngIf="num === 4">
+        <h1>score {{score}} / {{questionNumber}}</h1>
+        <button class="btn-again" (click)="playAgain()">Play Again</button>
+      </div>
+    </div>
   </form>
 </div>
-<div class="score">
-  <h1>score {{score}} / {{questionNumber}}</h1>
-  <button class="btn-again" (click)="playAgain()">Play Again</button>
-</div>
+
