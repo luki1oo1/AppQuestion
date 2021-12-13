@@ -1,41 +1,52 @@
-<div class="quiz-container" id="quiz" *ngFor='let taskQuestion of taskQuestions; let i = index'>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="quiz-header" *ngIf="i === num">
-      <h2 id="question">{{i + 1}} - {{taskQuestion.question}}</h2>
-      <ul>
-        <li>
-          <input type="radio" name="answer" value="a"
-                 id="a" class="answer" formControlName="answer"
-          />
-          <label for="a" id="a_text">{{taskQuestion.a}}</label>
-        </li>
-        <li>
-          <input type="radio" name="answer" value="b"
-                 id="b" class="answer" formControlName="answer" />
-          <label for="b" id="b_text">{{taskQuestion.b}}</label>
-        </li>
-        <li>
-          <input type="radio" name="answer" value="c"
-                 id="c" class="answer" formControlName="answer" />
-          <label for="c" id="c_text">{{taskQuestion.c}}</label>
-        </li>
-        <li>
-          <input type="radio" name="answer" value="d"
-                 id="d" class="answer" formControlName="answer" />
-          <label for="d" id="d_text">{{taskQuestion.d}}</label>
-        </li>
-      </ul>
+<div>
+  <div *ngIf="questionNumber !== taskQuestions.length">
+    <div
+      class="quiz-container" id="quiz"
+      *ngFor='let taskQuestion of taskQuestions; let i = index'
+    >
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="quiz-header" *ngIf="i === num">
+          <h2 id="question">{{i + 1}} - {{taskQuestion.question}}</h2>
+          <ul>
+            <li>
+              <input type="radio" name="answer" value="a"
+                     id="a" class="answer" formControlName="answer"
+              />
+              <label for="a" id="a_text">{{taskQuestion.a}}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" value="b"
+                     id="b" class="answer" formControlName="answer" />
+              <label for="b" id="b_text">{{taskQuestion.b}}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" value="c"
+                     id="c" class="answer" formControlName="answer" />
+              <label for="c" id="c_text">{{taskQuestion.c}}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" value="d"
+                     id="d" class="answer" formControlName="answer" />
+              <label for="d" id="d_text">{{taskQuestion.d}}</label>
+            </li>
+          </ul>
+        </div>
+        <button
+          id="submit"
+          type="submit"
+          *ngIf="i === num"
+        >Submit</button>
+      </form>
     </div>
-    <button id="submit"
-            type="submit"
-            *ngIf="i === num"
-    >Submit</button>
-    <div class="container-store" *ngIf="i === num">
-      <div class="score" *ngIf="num === 4">
-        <h1>score {{score}} / {{questionNumber}}</h1>
+  </div>
+  <div class="quiz-container">
+    <div class="container-store"
+         *ngIf="questionNumber == taskQuestions.length"
+    >
+      <div class="score">
+        <h1>score {{score}} / {{taskQuestions.length}}</h1>
         <button class="btn-again" (click)="playAgain()">Play Again</button>
       </div>
     </div>
-  </form>
+  </div>
 </div>
-

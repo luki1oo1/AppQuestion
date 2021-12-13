@@ -57,7 +57,6 @@ export class AppComponent {
       correct: "b"
     }
   ];
-
   incrementNumber() {
     this.num++
   }
@@ -68,7 +67,7 @@ export class AppComponent {
       this.questionNumber++;
       this.score++;
       if (this.questionNumber === 4) {
-        console.log(`score ${this.score}/${this.questionNumber}`);
+        console.log(`score ${this.score}/${this.taskQuestions.length}`);
       }
     } else {
       this.incrementNumber();
@@ -79,7 +78,6 @@ export class AppComponent {
   playAgain() {
     this.questionNumber = 0;
     this.score = 0;
-    this.num = -1;
-    this.onSubmit();
+    this.num = 0;
   }
 }
