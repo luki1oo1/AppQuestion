@@ -86,5 +86,7 @@ export class AppComponent {
     this.questionNumber = 0;
     this.score = 0;
     this.num = 0;
+    this.valueProg = 100 / this.taskQuestions.length;
+
   }
 }
