@@ -1,5 +1,7 @@
 <div>
   <div *ngIf="questionNumber !== taskQuestions.length">
+    <label for="file">Quiz progress:</label>
+    <progress id="file" max="100" value="{{valueProg}}"> </progress>
     <div
       class="quiz-container" id="quiz"
       *ngFor='let taskQuestion of taskQuestions; let i = index'

@@ -57,21 +57,28 @@ export class AppComponent {
       correct: "b"
     }
   ];
+  valueProg = 100 / this.taskQuestions.length;
   incrementNumber() {
     this.num++
   }
 
   onSubmit() {
+    this.valueProg += 0;
+    console.log(this.num, this.questionNumber)
     if (this.form.value.answer === this.taskQuestions[this.questionNumber].correct) {
       this.incrementNumber();
       this.questionNumber++;
       this.score++;
-      if (this.questionNumber === 4) {
+      this.valueProg += 100 / this.taskQuestions.length;
+      if (this.questionNumber > -1) {
         console.log(`score ${this.score}/${this.taskQuestions.length}`);
+        console.log(this.valueProg);
       }
     } else {
       this.incrementNumber();
       this.questionNumber++;
+      this.valueProg += 100 / this.taskQuestions.length;
+
     }
   }
 
