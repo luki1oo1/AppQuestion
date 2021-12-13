@@ -43,8 +43,7 @@
   </div>
   <div class="quiz-container">
     <div class="container-store"
-         *ngIf="questionNumber == taskQuestions.length"
-    >
+         *ngIf="questionNumber == taskQuestions.length">
       <div class="score">
         <h1>score {{score}} / {{taskQuestions.length}}</h1>
         <button class="btn-again" (click)="playAgain()">Play Again</button>
